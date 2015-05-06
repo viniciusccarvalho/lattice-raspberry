@@ -112,3 +112,30 @@ Go back to the gorouter folder inside github.com/cloudfoundry and run
 goxc -pv "0.2.4"
 ----
 
+. For all loggregator components
++
+I've checked the revision `371253a1178006dbca5ac739e6e65100bbdd43e`
+
+----
+git checkout 371253a1178006dbca5ac739e6e65100bbdd43e
+git submodule update --init --recursive
+----
+
+.. doppler
++
+----
+goxc -pv "0.2.4"
+----
+
+.. metron
++
+----
+goxc -pv "0.2.4"
+----
+
+.. trafficcontroller
++
+----
+goxc -pv "0.2.4"
+----
+
