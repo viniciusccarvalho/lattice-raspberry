@@ -1,3 +1,4 @@
+image:http://www.driscolls.com/content/images/recipe-images/recipe_detail_858ad0d9837c68c8f1ddac9e08204579.jpg[lattice crust on raspberry pie]
 
 . Clone diego-release 
 +
