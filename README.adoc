@@ -1,0 +1,100 @@
+
+. Clone diego-release 
++
+----
+git clone https://github.com/cloudfoundry-incubator/diego-release
+----
+
+. Checkout the proper lattice version (0.2.4) -> f2e82ad72b19a469528a62539539bec7b5ad6736
++
+----
+git checkout f2e82ad72b19a469528a62539539bec7b5ad6736
+git submodule --init --recursive
+----
+
+. Set the new GOPATH to match your diego-release
++
+----
+export GOPATH=<diego-release-folder>
+---- 
+
+. Install goxc
++
+. Create .goxc.json file:
++
+---- 
+{
+	"ArtifactsDest": "/Users/vcarvalho/lattice-arm",
+"OutPath": "{{.Dest}}{{.PS}}{{.AppName}}{{.PS}}{{.Version}}{{.PS}}{{.AppName}}_{{.Version}}_{{.Os}}_{{.Arch}}{{.Ext}}",
+	"Tasks": [
+		"xc"
+	],
+	"Arch": "arm",
+	"Os": "linux",
+	"BuildConstraints": "linux",
+	"TaskSettings": {
+		"xc": {
+			"GOARM": "7"
+		}
+	},
+	"ConfigVersion": "0.9"
+}
+----
+
+== Build each component
+
+. etcd
++
+----
+goxc -pv "0.2.4" -main-dirs-exclude=tools,migrate,etcdctl
+----
+
+. gnatsd
++
+----
+goxc -pv "0.2.4"
+----
+
+. file-server
++
+----
+goxc -pv "0.2.4"
+----
+
+. receptor
++
+----
+goxc -pv "0.2.4"
+----
+
+. route-emitter
++
+----
+goxc -pv "0.2.4"
+----
+
+. auctioneer
++
+----
+goxc -pv "0.2.4"
+----
+
+. converger
++
+----
+goxc -pv "0.2.4"
+----
+
+. executor
++
+----
+goxc -pv "0.2.4"
+----
+
+. rep
++
+----
+goxc -pv "0.2.4"
+----
+
+
