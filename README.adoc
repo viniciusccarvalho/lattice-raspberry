@@ -97,4 +97,17 @@ goxc -pv "0.2.4"
 goxc -pv "0.2.4"
 ----
 
+. gorouter
++
+There's a mismatch between the revision that is checked by diego-release and the one that this version of the router needs. Go to the diego-release folder github.com/cloufdoundry-incubator/cf-debug-server and run:
+
+----
+git checkout 6e8c6102596e3fb6a17511f9f39fae64c89144a7
+----
+
+Go back to the gorouter folder inside github.com/cloudfoundry and run
+
+----
+goxc -pv "0.2.4"
+----
 
